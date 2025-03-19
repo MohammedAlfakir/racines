@@ -17,6 +17,7 @@ export const HeroParallax = ({
     title: string;
     link: string;
     thumbnail: string;
+    description?: string; // Added description property
   }[];
 }) => {
   const firstRow = products.slice(0, 5);
@@ -57,7 +58,7 @@ export const HeroParallax = ({
   return (
     <div
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden  antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
+      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
     >
       <Header />
       <motion.div
@@ -78,7 +79,7 @@ export const HeroParallax = ({
             />
           ))}
         </motion.div>
-        <motion.div className="flex flex-row  mb-20 space-x-20 ">
+        <motion.div className="flex flex-row mb-20 space-x-20">
           {secondRow.map(product => (
             <ProductCard
               product={product}
@@ -123,9 +124,15 @@ export const ProductCard = ({
     title: string;
     link: string;
     thumbnail: string;
+    description?: string;
   };
   translate: MotionValue<number>;
 }) => {
+  // Default description if none is provided
+  const description =
+    product.description ||
+    "Découvrez notre approche personnalisée pour ce traitement spécialisé, conçu pour répondre à vos besoins spécifiques.";
+
   return (
     <motion.div
       style={{
@@ -139,7 +146,7 @@ export const ProductCard = ({
     >
       <Link
         href={product.link}
-        className="block group-hover/product:shadow-2xl "
+        className="block group-hover/product:shadow-2xl"
       >
         <Image
           src={product.thumbnail}
@@ -149,10 +156,38 @@ export const ProductCard = ({
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
+
+      {/* Overlay with centered title and description */}
+      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-90 bg-gradient-to-b from-black/80 via-black/60 to-black/80 transition-opacity duration-300 flex flex-col items-center justify-center px-6 pointer-events-none">
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          className="text-white text-xl md:text-2xl font-bold text-center mb-4"
+        >
+          {product.title}
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          className="text-gray-200 text-center leading-relaxed max-w-md"
+        >
+          {description}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+          className="mt-6"
+        >
+          <span className="px-4 py-2 rounded-full border border-white text-white text-sm">
+            En savoir plus
+          </span>
+        </motion.div>
+      </div>
     </motion.div>
   );
 };
