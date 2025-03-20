@@ -1,28 +1,12 @@
 "use client";
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Navbar";
-import Image from "next/image";
-import { useState, useRef } from "react";
+import ContactForm from "@/Components/ContactFrom";
+import Faq from "@/Components/Faq";
+import { useRef } from "react";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 
 function Page() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    description: "",
-    role: "candidate",
-  });
-
-  const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const { scrollYProgress } = useScroll();
 
   const headerRef = useRef(null);
@@ -32,11 +16,6 @@ function Page() {
     stiffness: 100,
     damping: 30,
   });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log(formData);
-  };
 
   return (
     <>
@@ -218,93 +197,8 @@ function Page() {
         />
       </motion.header>
 
-      <section className="my-20 container">
-        <div className="flex items-center justify-center gap-20">
-          <div className="flex flex-col justify-center max-w-lg ml-20">
-            <h2 className="text-3xl font-bold self-start mb-3">
-              Discutez avec notre équipe
-            </h2>
-            <p className="text-base text-gray-500 mb-5">
-              Vous avez besoin d’aide ? Vous voulez une démo ? Contactez notre
-              équipe amicale et nous reviendrons vers vous dans les 24 heures.
-            </p>
-            <div>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="Prénom"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    className="p-2 w-full border rounded-lg focus-visible:border-[#58B195] focus:outline-none"
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Nom de famille"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    className="p-2 w-full border rounded-lg focus-visible:border-[#58B195] focus:outline-none"
-                    required
-                  />
-                </div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="p-2 w-full border rounded-lg focus-visible:border-[#58B195] focus:outline-none"
-                  required
-                />
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Numéro de téléphone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="p-2 w-full border rounded-lg focus-visible:border-[#58B195] focus:outline-none"
-                />
-                <textarea
-                  name="description"
-                  placeholder="Description"
-                  value={formData.description}
-                  onChange={handleChange}
-                  className="p-2 w-full border rounded-lg h-24 focus-visible:border-[#58B195] focus:outline-none"
-                ></textarea>
-                <select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  className="p-2 w-full border rounded-lg focus-visible:border-[#58B195] focus:outline-none"
-                >
-                  <option value="candidate">test2</option>
-                  <option value="maldier">Test1</option>
-                </select>
-                <button
-                  type="submit"
-                  className="w-full bg-[#003c2a] text-white p-2 rounded-lg hover:bg-[#003c2a]"
-                >
-                  Soumettre
-                </button>
-              </form>
-            </div>
-          </div>
-          <div>
-            <Image
-              src={
-                "https://images.unsplash.com/photo-1688588162632-2a98e10058da?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              }
-              alt="contact"
-              width={600}
-              height={500}
-              className="rounded-xl"
-            />
-          </div>
-        </div>
-      </section>
+      <ContactForm />
+      <Faq />
       <Footer />
     </>
   );
