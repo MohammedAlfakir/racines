@@ -32,7 +32,8 @@
     "src/Components/Hero.jsx",
     "src/Components/Contact.jsx",
     "src/Components/decorations/roots.jsx",
-    "src/Components/Navbar.jsx"
+    "src/Components/Navbar.jsx",
+    "src/Components/card-hover-effect.jsx"
   ],
   "exclude": ["node_modules"]
 }
