@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { twMerge } from "tailwind-merge";
+// import { twMerge } from "tailwind-merge";
 import { TracingBeam } from "@/Components/ui/tracing-beam";
 
 export default function TracingBeamDemo() {
@@ -10,12 +10,12 @@ export default function TracingBeamDemo() {
       <div className="max-w-2xl mx-auto antialiased pt-4 relative">
         {dummyContent.map((item, index) => (
           <div key={`content-${index}`} className="mb-10">
-            <h2 className="bg-[#58B195] text-white rounded-full text-sm w-fit px-4 py-1 mb-4">
+            <h2 className="bg-[#58B195] text-white rounded-full text-base w-fit px-8 py-1 mb-4">
               {item.badge}
             </h2>
 
-            <p className={twMerge("text-xl mb-4")}>{item.title}</p>
-
+            {/* <p className={twMerge("text-xl mb-4")}>{item.title}</p> */}
+            <div className="mb-6">{item.description}</div>
             <div className="text-sm  prose prose-sm dark:prose-invert">
               {item?.image && (
                 <Image
@@ -26,7 +26,6 @@ export default function TracingBeamDemo() {
                   className="rounded-lg mb-10 object-cover"
                 />
               )}
-              {item.description}
             </div>
           </div>
         ))}
@@ -37,7 +36,7 @@ export default function TracingBeamDemo() {
 
 const dummyContent = [
   {
-    title: "Un Espace Dédié à Votre Récupération et Votre Mobilité :",
+    // title: "Un Espace Dédié à Votre Récupération et Votre Mobilité :",
     description: (
       <>
         <p className="mb-4">
@@ -57,12 +56,12 @@ const dummyContent = [
         </button> */}
       </>
     ),
-    badge: "Au Cabinet Racines",
+    badge: "Origine",
     image:
       "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
-    title: "Au Cabinet Racines",
+    // title: "Au Cabinet Racines",
     description: (
       <>
         <p>
@@ -89,6 +88,7 @@ const dummyContent = [
           complète et durable. Nous croyons que la réussite du projet de chaque
           patient repose sur une attention minutieuse à ses besoins,
         </p>
+        <br />
         <p>
           un suivi constant et une communication ouverte. Notre philosophie
           repose sur un équilibre entre expertise médicale et bienveillance,
