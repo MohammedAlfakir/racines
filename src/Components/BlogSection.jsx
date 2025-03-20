@@ -2,6 +2,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import img from "@/images/image 34.png";
 
 // Sample featured blog posts for the landing page
 const featuredPosts = [
@@ -12,7 +14,8 @@ const featuredPosts = [
       "Découvrez les techniques avancées de rééducation pour les athlètes et sportifs amateurs.",
     date: "19 Mars 2025",
     category: "Rééducation",
-    image: "/images/blog/sports-rehab.jpg",
+    image:
+      "https://images.unsplash.com/photo-1556476874-c98062c7027a?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     readTime: "5 min",
   },
   {
@@ -22,7 +25,8 @@ const featuredPosts = [
       "Des exercices simples et efficaces pour maintenir la santé de votre dos et prévenir les douleurs.",
     date: "15 Mars 2025",
     category: "Prévention",
-    image: "/images/blog/back-pain.jpg",
+    image:
+      "https://images.unsplash.com/photo-1653106520197-2134f341c11b?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Q29tbWVudCUyMHByJUMzJUE5dmVuaXIlMjBsZXMlMjBkb3VsZXVycyUyMGxvbWJhaXJlcyUyMGF1JTIwcXVvdGlkaWVufGVufDB8fDB8fHww",
     readTime: "4 min",
   },
   {
@@ -32,7 +36,8 @@ const featuredPosts = [
       "Comprendre l'importance de la rééducation respiratoire pour améliorer votre qualité de vie.",
     date: "8 Mars 2025",
     category: "Respiratoire",
-    image: "/images/blog/respiratory.jpg",
+    image:
+      "https://images.unsplash.com/photo-1612278247108-4a9e82d2ca57?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fExlcyUyMGJpZW5mYWl0cyUyMGRlJTIwbGElMjBraW4lQzMlQTlzaXRoJUMzJUE5cmFwaWUlMjByZXNwaXJhdG9pcmV8ZW58MHx8MHx8fDA%3D",
     readTime: "6 min",
   },
 ];
@@ -244,7 +249,12 @@ function FeaturedBlogCard({ post, index, inView }) {
             {/* Replace with actual Image component for Next.js */}
             <div className="absolute inset-0 bg-gray-300 flex items-center justify-center text-gray-500">
               {/* This is a placeholder - use Next Image in production */}
-              <span>{post.category}</span>
+              <Image
+                src={post.image}
+                width={500}
+                height={500}
+                alt="Blog image"
+              />
             </div>
           </div>
           <div className="absolute top-4 left-4 z-10">

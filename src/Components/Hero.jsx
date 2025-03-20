@@ -13,7 +13,7 @@ export default function ExtendedHeroSection() {
   });
 
   // Animation controls
-  const scale = useSpring(useTransform(scrollYProgress, [0, 0.8], [0, 400]), {
+  const scale = useSpring(useTransform(scrollYProgress, [0, 0.8], [0, 600]), {
     stiffness: 150,
     damping: 25,
   });
@@ -184,7 +184,7 @@ export default function ExtendedHeroSection() {
         <div className="relative w-screen h-screen flex items-center justify-center">
           {/* Foreground Content */}
           {showContent && (
-            <div className="relative mt-[-50px] z-10 h-screen flex flex-col items-center justify-center">
+            <div className="relative z-10 h-screen flex flex-col items-center justify-center">
               <section className="container uppercase text-[#262626] flex justify-between items-center mx-auto gap-10">
                 <div className="font-medium text-8xl w-[100%]">
                   <motion.h1
@@ -193,9 +193,13 @@ export default function ExtendedHeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                   >
-                    <div>Cabinet Racines:</div>
+                    <div className="ml-[-150px] mb-3">Cabinet Racines:</div>
                     <div className="flex items-center gap-5">
-                      <div className="ml-28 text-[#003c2a]">ensemble</div>
+                      <div className=" text-[#003c2a] mb-3">ensemble</div>
+                      <p className="text-sm w-96">
+                        Chez Racines Physio, nous combinons expertise et soins
+                        personnalisés pour une rééducation complète et durable.
+                      </p>
                     </div>
                   </motion.h1>
                   <motion.div
@@ -205,13 +209,15 @@ export default function ExtendedHeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    <div className="text-8xl mt-2 mb-2">faisons le premier</div>
+                    <div className="text-8xl mb-4 ml-[-150px]">
+                      faisons le premier pas
+                    </div>
                     <div className="ml-1 w-[100%] border-[#003c2a] text-[#003c2a] border-2 px-10 rounded-full text-center">
                       <div>vers la guérison.</div>
                     </div>
                   </motion.div>
                 </div>
-                <div className="self-end w-[30%]">
+                {/* <div className="self-end w-[30%]">
                   <motion.div
                     style={{ x: buttonsPosition }}
                     initial={{ opacity: 0 }}
@@ -228,7 +234,7 @@ export default function ExtendedHeroSection() {
                       </button>
                     </div>
                   </motion.div>
-                </div>
+                </div> */}
               </section>
             </div>
           )}
@@ -265,7 +271,9 @@ export default function ExtendedHeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Plongez dans l&quot;histoire de Racines
+              <Link href="/lecabinet">
+                Plongez dans l&quot;histoire de Racines
+              </Link>
             </motion.button>
           </div>
         )}
