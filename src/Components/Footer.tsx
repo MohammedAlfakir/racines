@@ -10,11 +10,11 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold mb-4">Racines</h3>
             <p className="text-gray-400 text-sm">
-              Transformer les idées en réalité numérique grâce à des solutions
-              innovantes.
+              Racines incarne une vision : une prise en charge alliant science,
+              écoute et respect du corps.
             </p>
             <div className="flex space-x-4 mt-4">
-              <Link
+              {/* <Link
                 href="#"
                 className="text-gray-400 hover:text-white transition-colors"
               >
@@ -27,7 +27,7 @@ const Footer = () => {
                 >
                   <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                 </svg>
-              </Link>
+              </Link> */}
               {/* Add other social icons similarly */}
             </div>
           </div>
@@ -35,37 +35,46 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Liens rapides</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-2 first-letter:uppercase lowercase">
               <li>
                 <Link
-                  href="/about"
+                  href="/nostraitements"
                   className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
                 >
-                  À propos de nous
+                  NOS TRAITEMENTS
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/services"
+                  href="/parcourspatients"
                   className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
                 >
-                  Services
+                  PARCOURS PATIENTS
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/lecabinet"
+                  className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
+                >
+                  LE CABINET
+                </Link>
+              </li>
+
               {/* Add more links */}
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Légal</h3>
+            <h3 className="text-lg font-semibold mb-4">Plus</h3>
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/privacy"
+                  href="/blog"
                   className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
                 >
-                  Politique de confidentialité
+                  Blog
                 </Link>
               </li>
               <li>
@@ -73,7 +82,7 @@ const Footer = () => {
                   href="/terms"
                   className="text-gray-400 hover:text-primary-400 transition-colors text-sm"
                 >
-                  Conditions d&lsquo;utilisation
+                  FAQ&lsquo;s
                 </Link>
               </li>
               {/* Add more legal links */}
@@ -84,10 +93,10 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Nous contacter</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>123 Rue des Affaires</li>
-              <li>New York, NY 10001</li>
-              <li>Email: info@company.com</li>
-              <li>Téléphone: (555) 123-4567</li>
+              <li>20c, résidence maamora rue oued sebbou</li>
+              <li>immeuble 7 Sala Al Jadida 11100</li>
+              <li>Email: info@cabinetracines.com</li>
+              <li>Téléphone: +212 641-380-017</li>
             </ul>
           </div>
         </div>

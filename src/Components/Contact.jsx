@@ -104,7 +104,7 @@ export default function ContactCTA() {
 
               <motion.div whileHover={{ y: -5 }} whileTap={{ y: 0 }}>
                 <a
-                  href="tel:+33123456789"
+                  href="tel:+212641380017"
                   className="inline-flex items-center py-4 px-8 border-2 border-white text-white rounded-full font-medium hover:bg-white hover:text-[#003c2a] transition-colors"
                 >
                   <svg
@@ -121,14 +121,13 @@ export default function ContactCTA() {
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                     />
                   </svg>
-                  +33 1 23 45 67 89
+                  +212 641-380-017
                 </a>
               </motion.div>
             </div>
 
             <div className="mt-10 text-gray-200 text-sm">
-              <p>Cabinet Racines • 123 Avenue de la Santé, 75001 Paris</p>
-              <p className="mt-1">Lun-Ven: 8h-19h • Sam: 9h-14h • Dim: Fermé</p>
+              <p>Horaires de travail • 8h30 - 16h30 (Ramadan)</p>
             </div>
           </motion.div>
         </div>
