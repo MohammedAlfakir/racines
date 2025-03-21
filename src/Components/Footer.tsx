@@ -96,8 +96,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Nous contacter</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>20c, résidence maamora rue oued sebbou</li>
-              <li>immeuble 7 Sala Al Jadida 11100</li>
+              <li>20C, Résidence Maamora Rue Oued Sebbou</li>
+              <li>Immeuble 7 Sala Al Jadida 11100</li>
               <li>Email: info@cabinetracines.com</li>
               <li>Téléphone: +212 641-380-017</li>
             </ul>

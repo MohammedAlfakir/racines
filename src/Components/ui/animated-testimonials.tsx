@@ -30,6 +30,7 @@ const TestimonialCTA = () => {
         onHoverEnd={() => setIsHovered(false)}
       >
         <motion.a
+          target="_blank"
           href="https://www.google.com/search?q=cabinet+racines&sca_esv=63c9e37f8da915f5&sxsrf=AHTn8zriBCOoO_hkdjOz_qYrVVDkRNt_eg%3A1742552933962&source=hp&ei=ZT_dZ7u5N6KOkdUPitG12AY&iflsig=ACkRmUkAAAAAZ91NdQ0z6s-E1kvYj9twbHG2dv2TxglD&oq=cabin&gs_lp=Egdnd3Mtd2l6IgVjYWJpbioCCAAyBBAjGCcyChAjGIAEGCcYigUyBBAjGCcyDRAAGIAEGEMYyQMYigUyCxAAGIAEGJIDGIoFMgUQABiABDIFEAAYgAQyBRAAGIAEMgUQABiABDIFEAAYgARI2iBQAFiJHHABeACQAQCYAcIBoAG_C6oBBDAuMTC4AQPIAQD4AQGYAgugAoYMwgIQEC4YgAQYxwEYJxiKBRivAcICCxAAGIAEGJECGIoFwgILEC4YgAQY0QMYxwHCAgUQLhiABMICChAAGIAEGEMYigXCAgoQLhiABBhDGIoFwgILEC4YgAQYxwEYrwHCAggQABiABBjJA8ICCBAAGIAEGJIDmAMAkgcEMS4xMKAHo4EBsgcEMC4xMLgHgAw&sclient=gws-wiz&lqi=Cg9jYWJpbmV0IHJhY2luZXNIrPHF3-KrgIAIWh0QABABGAAYASIPY2FiaW5ldCByYWNpbmVzMgJmcpIBD3BoeXNpb3RoZXJhcGlzdKoBOBABMh8QASIbIqre7swVDKGXNXyCTziJtwxQV6fvyj0MJ4g4MhMQAiIPY2FiaW5ldCByYWNpbmVz#lrd=0xda740331c555555:0x73be5d84a2f9cecf,3,,,,&rlimm=8340206384188083919"
           className="inline-flex items-center justify-center px-12 py-4 text-lg font-bold text-[#003c2a] bg-white rounded-full relative overflow-hidden"
           whileHover={{
