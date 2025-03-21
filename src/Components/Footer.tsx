@@ -2,7 +2,6 @@
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-
 const Footer = () => {
   return (
     <footer className="bg-[#003c2a] text-white pt-12 mt-auto">
@@ -95,11 +94,19 @@ const Footer = () => {
           {/* Contact */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Nous contacter</h3>
-            <ul className="space-y-2 text-gray-400 text-sm">
-              <li>20C, Résidence Maamora Rue Oued Sebbou</li>
-              <li>Immeuble 7 Sala Al Jadida 11100</li>
-              <li>Email: info@cabinetracines.com</li>
-              <li>Téléphone: +212 641-380-017</li>
+            <ul className="space-y-2 text-gray-400 text-sm flex flex-col">
+              <Link href="https://maps.app.goo.gl/CjJzRhR3uetD8nhFA">
+                <li>20C, Résidence Maamora Rue Oued Sebbou</li>
+              </Link>
+              <Link href="https://maps.app.goo.gl/CjJzRhR3uetD8nhFA">
+                <li>Immeuble 7 Sala Al Jadida 11100</li>
+              </Link>
+              <Link href="mailto:info@cabinetracines.com">
+                <li>Email: info@cabinetracines.com</li>
+              </Link>
+              <Link href="tel:+212641380017">
+                <li>Téléphone: +212 641-380-017</li>
+              </Link>
             </ul>
           </div>
         </div>
