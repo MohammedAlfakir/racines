@@ -107,7 +107,12 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-8 py-6 text-center">
           <p className="text-gray-400 text-sm">
-            &copy; {new Date().getFullYear()} Point Virgul. All rights reserved.
+            &copy; {new Date().getFullYear()}
+            <Link href="https://pointvirgul.com/" target="_blank">
+              {" "}
+              Point Virgul.{" "}
+            </Link>
+            All rights reserved.
           </p>
         </div>
       </div>
