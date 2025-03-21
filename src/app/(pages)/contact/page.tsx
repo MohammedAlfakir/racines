@@ -2,7 +2,6 @@
 import Footer from "@/Components/Footer";
 import Header from "@/Components/Navbar";
 import ContactForm from "@/Components/ContactFrom";
-import Faq from "@/Components/Faq";
 import { useRef } from "react";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 
@@ -198,7 +197,6 @@ function Page() {
       </motion.header>
 
       <ContactForm />
-      <Faq />
       <Footer />
     </>
   );

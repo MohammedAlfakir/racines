@@ -87,9 +87,9 @@ export default function ContactCTA() {
             </h2>
 
             <p className="text-lg text-gray-100 mb-8 max-w-2xl mx-auto">
-              Notre équipe de spécialistes est prête à vous accompagner.
-              Contactez-nous dès aujourd'hui pour prendre rendez-vous ou pour
-              toute information.
+              Vous êtes à un clic de votre nouvelle vie sans douleurs. Prenez
+              rendez-vous dès aujourd'hui pour votre séance bilan avec nos
+              kinésithérapeutes
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">

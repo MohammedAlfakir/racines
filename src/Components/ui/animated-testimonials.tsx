@@ -52,7 +52,7 @@ const TestimonialCTA = () => {
               },
             }}
           >
-            Voir les témoignages.
+            Je donne mon avis
           </motion.span>
         </motion.a>
 

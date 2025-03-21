@@ -193,7 +193,7 @@ export default function ExtendedHeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                   >
-                    <div className="ml-[-150px] mb-3">Cabinet Racines:</div>
+                    <div className="ml-[-150px] mb-3">Cabinet Racines</div>
                     <div className="flex items-center gap-5">
                       <div className=" text-[#003c2a] mb-3">ensemble</div>
                       <p className="text-sm w-96">

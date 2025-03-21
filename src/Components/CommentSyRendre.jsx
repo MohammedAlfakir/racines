@@ -95,12 +95,8 @@ export default function DirectionsSection() {
   return (
     <section
       ref={sectionRef}
-      className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden relative"
+      className="py-20 bg-gradient-to-b overflow-hidden relative"
     >
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#58B195] rounded-full opacity-5 -translate-y-1/2 translate-x-1/2" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#003c2a] rounded-full opacity-5 translate-y-1/2 -translate-x-1/2" />
-
       <div className="container mx-auto px-4">
         {/* Section header */}
         <motion.div

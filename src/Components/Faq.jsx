@@ -81,14 +81,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="py-24 bg-gray-50 relative overflow-hidden"
-    >
-      {/* Background decorative elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#58B195] rounded-full opacity-5 transform translate-x-1/2 -translate-y-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#003c2a] rounded-full opacity-5 transform -translate-x-1/2 translate-y-1/2"></div>
-
+    <section ref={sectionRef} className="py-24 relative overflow-hidden">
       {/* Pattern overlay */}
       <div className="absolute inset-0 opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
