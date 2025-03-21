@@ -139,9 +139,6 @@ export default function Trans() {
                 className="inline-block py-5 px-10 bg-transparent border-2 border-white text-white text-xl rounded-full font-bold hover:bg-white hover:text-[#58B195] shadow-lg hover:shadow-xl transition-all duration-300 transform md:min-w-[400px]"
               >
                 Découvrez votre parcours de soin
-                <span className="absolute right-10 top-1/2 transform -translate-y-1/2 transition-transform group-hover:translate-x-1">
-                  →
-                </span>
               </Link>
             </motion.div>
 

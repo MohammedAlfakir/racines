@@ -311,9 +311,9 @@ function Page() {
                   damping: 15,
                 }}
               >
-                De la Thérapie à la
+                Retrouvez mobilité et confort
                 <span className="block text-[#003c2a] drop-shadow-sm mt-2">
-                  Récupération
+                  au quotidien
                 </span>
               </motion.h2>
 
@@ -328,12 +328,11 @@ function Page() {
                 }}
               >
                 <p className="text-lg md:text-xl text-white leading-relaxed mb-12 max-w-3xl mx-auto">
-                  Nos traitements sont conçus pour soulager, rééduquer et
-                  renforcer votre mobilité. Mais chaque patient est unique, et
-                  la prise en charge ne s&apos;arrête pas au traitement.
-                  Découvrez comment nous vous accompagnons à chaque étape, de la
-                  première consultation jusqu&apos;à votre retour à une pleine
-                  autonomie.
+                  Le Cabinet Racines met son expertise en physiokinésithérapie
+                  au service de votre santé. Grâce à une approche personnalisée,
+                  nous vous aidons à retrouver vos capacités et à soulager vos
+                  douleurs durablement. Découvrez nos conseils et prenez soin de
+                  votre mobilité dès aujourd&apos;hui.
                 </p>
               </motion.div>
 
@@ -348,16 +347,33 @@ function Page() {
                 }}
                 whileHover={{ y: -5 }}
                 whileTap={{ y: 0 }}
-                className="relative"
+                className="inline"
               >
                 <Link
                   href="/blog"
                   className="inline-block py-5 px-10 bg-transparent border-2 border-white text-white text-xl rounded-full font-bold hover:bg-white hover:text-[#58B195] shadow-lg hover:shadow-xl transition-all duration-300 transform md:min-w-[400px]"
                 >
-                  Découvrez votre parcours de soin
-                  <span className="absolute right-10 top-1/2 transform -translate-y-1/2 transition-transform group-hover:translate-x-1">
-                    →
-                  </span>
+                  Consulter le Blog
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ y: 40, opacity: 0 }}
+                animate={isInView ? { y: 0, opacity: 1 } : {}}
+                transition={{
+                  type: "spring",
+                  stiffness: 100,
+                  damping: 15,
+                  delay: 0.4,
+                }}
+                whileHover={{ y: -5 }}
+                whileTap={{ y: 0 }}
+                className="inline ml-16"
+              >
+                <Link
+                  href="/contact"
+                  className="inline-block py-5 px-10 bg-transparent border-2 border-white text-white text-xl rounded-full font-bold hover:bg-white hover:text-[#58B195] shadow-lg hover:shadow-xl transition-all duration-300 transform md:min-w-[400px]"
+                >
+                  Prendre RDV
                 </Link>
               </motion.div>
 
