@@ -247,7 +247,7 @@ export default function ExtendedHeroSection() {
                    text-white text-center z-30 space-y-4"
           >
             <motion.h2
-              className="font-bold text-4xl italic"
+              className="font-bold text-3xl italic"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.1 }}
@@ -358,12 +358,12 @@ export default function ExtendedHeroSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+            <h2 className="text-3xl md:text-6xl font-bold mb-6 text-center">
               <span className="text-[#58B195]">Histoire</span> et{" "}
               <span className="text-[#58B195]">Philosophie</span>
             </h2>
 
-            <p className="text-lg leading-relaxed text-center">
+            <p className="text-xl leading-relaxed text-center">
               Nous sommes nés d'une volonté d'offrir des soins personnalisés,
               alliant expertise et bienveillance. Chaque patient bénéficie d'un
               suivi adapté, axé sur une récupération complète et durable. Notre
@@ -373,7 +373,7 @@ export default function ExtendedHeroSection() {
           </motion.div>
 
           {/* Missions and Valeurs columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start ml-[210px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-20 ml-[300px]">
             {/* Left column - Missions */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -381,7 +381,7 @@ export default function ExtendedHeroSection() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center">
+              <h3 className="text-3xl font-bold mb-6 flex items-center">
                 <span className="inline-block w-8 h-8 mr-3 rounded-full bg-[#58B195] flex items-center justify-center text-[#003c2a] font-bold">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -395,7 +395,7 @@ export default function ExtendedHeroSection() {
                 Missions
               </h3>
 
-              <ul className="space-y-4">
+              <ul className="space-y-4 text-lg">
                 <MissionItem title="Rééducation">
                   Améliorer la santé physique avec des soins innovants.
                 </MissionItem>
@@ -417,7 +417,7 @@ export default function ExtendedHeroSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-2xl font-bold mb-6 flex items-center">
+              <h3 className="text-3xl font-bold mb-6 flex items-center">
                 <span className="inline-block w-8 h-8 mr-3 rounded-full bg-[#58B195] flex items-center justify-center text-[#003c2a] font-bold">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -435,7 +435,7 @@ export default function ExtendedHeroSection() {
                 Valeurs
               </h3>
 
-              <ul className="space-y-4">
+              <ul className="space-y-4 text-lg">
                 <ValueItem title="Transparence">
                   Infos claires sur les soins et tarifs.
                 </ValueItem>
