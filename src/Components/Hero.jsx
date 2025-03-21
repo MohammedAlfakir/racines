@@ -27,6 +27,9 @@ export default function ExtendedHeroSection() {
   // For navbar transparency effect on scroll
   const [scrolled, setScrolled] = useState(false);
 
+  // For mobile menu toggle
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   // Animating text and buttons position
   const textPosition = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
   const buttonsPosition = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
@@ -54,6 +57,10 @@ export default function ExtendedHeroSection() {
     };
   }, [scrollYProgress]);
 
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
   return (
     <>
       {/* Navbar */}
@@ -65,14 +72,14 @@ export default function ExtendedHeroSection() {
         animate={{ y: 0 }}
         transition={{ duration: 0.2 }}
       >
-        <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image src={logo} width={55} />
+            <Image src={logo} width={55} alt="Racines Logo" />
           </Link>
 
-          {/* Navigation links */}
-          <div className="hidden text-sm md:flex space-x-8">
+          {/* Navigation links - Desktop */}
+          <div className="hidden md:flex space-x-4 lg:space-x-8 text-xs lg:text-sm">
             <NavLink href="/nostraitements" scrolled={scrolled}>
               NOS TRAITEMENTS
             </NavLink>
@@ -87,10 +94,10 @@ export default function ExtendedHeroSection() {
             </NavLink>
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button - Desktop */}
           <Link
             href="/contact"
-            className={`hidden md:block px-6 py-2 rounded-full border-2 transition-colors ${
+            className={`hidden md:block px-4 py-2 lg:px-6 text-base rounded-full border-2 transition-colors ${
               scrolled
                 ? "border-[#003c2a] text-[#003c2a] hover:bg-[#003c2a] hover:text-white"
                 : "border-[#003c2a] text-[#003c2a] hover:bg-[#003c2a] hover:text-white"
@@ -100,7 +107,10 @@ export default function ExtendedHeroSection() {
           </Link>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-[#003c2a]">
+          <button
+            className="md:hidden text-[#003c2a]"
+            onClick={toggleMobileMenu}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -112,13 +122,45 @@ export default function ExtendedHeroSection() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
+                d={
+                  mobileMenuOpen
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
               />
             </svg>
           </button>
         </div>
 
-        {/* Decorative element in navbar */}
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white shadow-md py-4 px-6 absolute w-full">
+            <div className="flex flex-col space-y-4">
+              <MobileNavLink href="/nostraitements" onClick={toggleMobileMenu}>
+                NOS TRAITEMENTS
+              </MobileNavLink>
+              <MobileNavLink
+                href="/parcourspatients"
+                onClick={toggleMobileMenu}
+              >
+                PARCOURS PATIENTS
+              </MobileNavLink>
+              <MobileNavLink href="/lecabinet" onClick={toggleMobileMenu}>
+                LE CABINET
+              </MobileNavLink>
+              <MobileNavLink href="/blog" onClick={toggleMobileMenu}>
+                BLOG
+              </MobileNavLink>
+              <Link
+                href="/contact"
+                onClick={toggleMobileMenu}
+                className="px-4 py-2 rounded-full border-2 text-center border-[#003c2a] text-[#003c2a] hover:bg-[#003c2a] hover:text-white transition-colors"
+              >
+                Prendre RDV
+              </Link>
+            </div>
+          </div>
+        )}
       </motion.nav>
 
       {/* Hero Section */}
@@ -157,7 +199,7 @@ export default function ExtendedHeroSection() {
           </svg>
 
           {/* Corner decorations */}
-          <div className="absolute top-0 left-0 w-32 h-32 opacity-50">
+          <div className="absolute top-0 left-0 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 opacity-50">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0 L100 0 L0 100 Z" fill="#58B195" opacity="0.2" />
               <path d="M0 0 L70 0 L0 70 Z" fill="#003c2a" opacity="0.2" />
@@ -165,7 +207,7 @@ export default function ExtendedHeroSection() {
             </svg>
           </div>
 
-          <div className="absolute bottom-0 right-0 w-32 h-32 opacity-50 rotate-180">
+          <div className="absolute bottom-0 right-0 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 opacity-50 rotate-180">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0 L100 0 L0 100 Z" fill="#58B195" opacity="0.2" />
               <path d="M0 0 L70 0 L0 70 Z" fill="#003c2a" opacity="0.2" />
@@ -177,26 +219,28 @@ export default function ExtendedHeroSection() {
         {/* Expanding dark overlay (centered) */}
         <motion.div
           style={{ scale, opacity: overlayOpacity }}
-          className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
           w-[100%] h-[1vh] bg-[#003c2a] origin-center z-20"
         />
 
         <div className="relative w-screen h-screen flex items-center justify-center">
           {/* Foreground Content */}
           {showContent && (
-            <div className="relative z-10 h-screen flex flex-col items-center justify-center">
-              <section className="container uppercase text-[#262626] flex justify-between items-center mx-auto gap-10">
-                <div className="font-medium text-8xl w-[100%]">
+            <div className="relative z-10 h-screen flex flex-col items-center justify-center px-4 sm:px-6">
+              <section className="container uppercase text-[#262626] flex flex-col md:flex-row justify-between items-center mx-auto gap-6 md:gap-10">
+                <div className="font-medium text-3xl sm:text-5xl md:text-6xl lg:text-8xl w-full">
                   <motion.h1
                     style={{ x: textPosition }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                   >
-                    <div className="ml-[-150px] mb-3">Cabinet Racines</div>
-                    <div className="flex items-center gap-5">
-                      <div className=" text-[#003c2a] mb-3">ensemble</div>
-                      <p className="text-sm w-96">
+                    <div className="ml-0 md:ml-[-50px] lg:ml-[-150px] mb-3">
+                      Cabinet Racines
+                    </div>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-5">
+                      <div className="text-[#003c2a] mb-3">ensemble</div>
+                      <p className="text-xs sm:text-sm uppercase w-full sm:w-96">
                         Chez Racines Physio, nous combinons expertise et soins
                         personnalisés pour une rééducation complète et durable.
                       </p>
@@ -209,32 +253,14 @@ export default function ExtendedHeroSection() {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                   >
-                    <div className="text-8xl mb-4 ml-[-150px]">
+                    <div className="text-2xl sm:text-4xl md:text-6xl lg:text-8xl mb-4 ml-0 md:ml-[-50px] lg:ml-[-150px]">
                       faisons le premier pas
                     </div>
-                    <div className="ml-1 w-[100%] border-[#003c2a] text-[#003c2a] py-2 border-2 px-10 rounded-full text-center">
+                    <div className="ml-1 w-full border-[#003c2a] text-[#003c2a] py-2 border-2 px-4 sm:px-10 rounded-full text-center">
                       <div>vers la guérison.</div>
                     </div>
                   </motion.div>
                 </div>
-                {/* <div className="self-end w-[30%]">
-                  <motion.div
-                    style={{ x: buttonsPosition }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                  >
-                    <div className="text-[#5A5A5A] mb-5 text-start">
-                      Chez Racines Physio, nous combinons expertise et soins
-                      personnalisés pour une rééducation complète et durable.
-                    </div>
-                    <div className="flex mt-5">
-                      <button className="underline text-[#5A5A5A] rounded-lg font-bold transform hover:-translate-y-1 transition duration-400 text-sm">
-                        Découvrez Nos traitements
-                      </button>
-                    </div>
-                  </motion.div>
-                </div> */}
               </section>
             </div>
           )}
@@ -244,10 +270,10 @@ export default function ExtendedHeroSection() {
         {showRevealText && (
           <div
             className="mt-24 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-                   text-white text-center z-30 space-y-4"
+                   text-white text-center z-30 space-y-4 px-4 sm:px-6 max-w-3xl"
           >
             <motion.h2
-              className="font-bold text-3xl italic"
+              className="font-bold text-xl sm:text-2xl md:text-3xl italic"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.1 }}
@@ -258,7 +284,7 @@ export default function ExtendedHeroSection() {
               anime et comment nous avons bâti cette approche.&quot;
             </motion.h2>
             <motion.p
-              className="text-base"
+              className="text-sm sm:text-base"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3, delay: 0.2 }}
@@ -266,7 +292,7 @@ export default function ExtendedHeroSection() {
               - La Fondatrice
             </motion.p>
             <motion.button
-              className="px-10 py-4 border-2 border-[#fff] text-[#fff] rounded-full font-bold transform hover:-translate-y-1 transition duration-400"
+              className="px-6 sm:px-10 py-3 sm:py-4 border-2 border-[#fff] text-[#fff] rounded-full font-bold transform hover:-translate-y-1 transition duration-400 text-sm sm:text-base"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -279,7 +305,7 @@ export default function ExtendedHeroSection() {
         )}
 
         {/* Decorative plant motif - bottom left */}
-        <div className="absolute bottom-0 left-0 w-64 h-64 opacity-30 pointer-events-none">
+        <div className="absolute bottom-0 left-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 opacity-30 pointer-events-none">
           <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
             <path
               d="M10,90 C30,70 20,40 10,30 C20,40 50,30 70,10"
@@ -312,7 +338,7 @@ export default function ExtendedHeroSection() {
       </section>
 
       {/* About Content Section with green background */}
-      <section className="relative bg-[#003c2a] text-white pt-10 pb-48 overflow-hidden">
+      <section className="relative bg-[#003c2a] text-white pt-10 pb-24 sm:pb-32 md:pb-48 overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute inset-0 pointer-events-none opacity-10">
           {/* Flowing line decoration */}
@@ -335,21 +361,21 @@ export default function ExtendedHeroSection() {
           </svg>
 
           {/* Corner decoration - top right */}
-          <div className="absolute top-0 right-0 w-64 h-64">
+          <div className="absolute top-0 right-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <path d="M100 0 L100 100 L0 0 Z" fill="#58B195" opacity="0.2" />
             </svg>
           </div>
 
           {/* Corner decoration - bottom left */}
-          <div className="absolute bottom-0 left-0 w-64 h-64 transform rotate-180">
+          <div className="absolute bottom-0 left-0 w-32 sm:w-48 md:w-64 h-32 sm:h-48 md:h-64 transform rotate-180">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
               <path d="M100 0 L100 100 L0 0 Z" fill="#58B195" opacity="0.2" />
             </svg>
           </div>
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
           {/* Histoire et Philosophie content */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -358,12 +384,12 @@ export default function ExtendedHeroSection() {
             viewport={{ once: true, margin: "-100px" }}
             className="max-w-3xl mx-auto mb-16"
           >
-            <h2 className="text-3xl md:text-6xl font-bold mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-6 text-center">
               <span className="text-[#58B195]">Histoire</span> et{" "}
               <span className="text-[#58B195]">Philosophie</span>
             </h2>
 
-            <p className="text-xl leading-relaxed text-center">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed text-center px-4">
               Nous sommes nés d'une volonté d'offrir des soins personnalisés,
               alliant expertise et bienveillance. Chaque patient bénéficie d'un
               suivi adapté, axé sur une récupération complète et durable. Notre
@@ -373,7 +399,7 @@ export default function ExtendedHeroSection() {
           </motion.div>
 
           {/* Missions and Valeurs columns */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-20 ml-[300px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start mt-10 sm:mt-20 px-4 md:ml-0 lg:ml-[150px] xl:ml-[300px]">
             {/* Left column - Missions */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -381,7 +407,7 @@ export default function ExtendedHeroSection() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-3xl font-bold mb-6 flex items-center">
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
                 <span className="inline-block w-8 h-8 mr-3 rounded-full bg-[#58B195] flex items-center justify-center text-[#003c2a] font-bold">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -395,7 +421,7 @@ export default function ExtendedHeroSection() {
                 Missions
               </h3>
 
-              <ul className="space-y-4 text-lg">
+              <ul className="space-y-4 text-base sm:text-lg">
                 <MissionItem title="Rééducation">
                   Améliorer la santé physique avec des soins innovants.
                 </MissionItem>
@@ -417,7 +443,7 @@ export default function ExtendedHeroSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true, margin: "-100px" }}
             >
-              <h3 className="text-3xl font-bold mb-6 flex items-center">
+              <h3 className="text-2xl md:text-3xl font-bold mb-6 flex items-center">
                 <span className="inline-block w-8 h-8 mr-3 rounded-full bg-[#58B195] flex items-center justify-center text-[#003c2a] font-bold">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -435,7 +461,7 @@ export default function ExtendedHeroSection() {
                 Valeurs
               </h3>
 
-              <ul className="space-y-4 text-lg">
+              <ul className="space-y-4 text-base sm:text-lg">
                 <ValueItem title="Transparence">
                   Infos claires sur les soins et tarifs.
                 </ValueItem>
@@ -466,6 +492,20 @@ function NavLink({ href, children, scrolled }) {
           ? "text-[#262626] hover:text-[#003c2a]"
           : "text-[#003c2a] hover:text-[#58B195]"
       }`}
+    >
+      {children}
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#58B195] transition-all duration-300 group-hover:w-full"></span>
+    </Link>
+  );
+}
+
+// Mobile Navigation Link component
+function MobileNavLink({ href, children, onClick }) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="relative group font-medium text-[#003c2a] hover:text-[#58B195] transition-colors py-2 block"
     >
       {children}
       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#58B195] transition-all duration-300 group-hover:w-full"></span>
