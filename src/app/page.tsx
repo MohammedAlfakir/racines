@@ -8,6 +8,7 @@ import Testimonails from "@/Components/Testimonails";
 import BlogSection from "@/Components/BlogSection";
 import Contact from "@/Components/Contact";
 import Parallax from "@/Components/Parallax";
+import CommentSyRendre from "@/Components/CommentSyRendre";
 // import ServicesSlider from "@/Components/ServicesSlider";
 // import Caro from "@/Components/Caro";
 
@@ -67,6 +68,7 @@ function page() {
       <Testimonails />
       <BlogSection />
       <Contact />
+      <CommentSyRendre />
       <Footer />
     </>
   );
