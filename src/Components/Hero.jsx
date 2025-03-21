@@ -212,7 +212,7 @@ export default function ExtendedHeroSection() {
                     <div className="text-8xl mb-4 ml-[-150px]">
                       faisons le premier pas
                     </div>
-                    <div className="ml-1 w-[100%] border-[#003c2a] text-[#003c2a] border-2 px-10 rounded-full text-center">
+                    <div className="ml-1 w-[100%] border-[#003c2a] text-[#003c2a] py-2 border-2 px-10 rounded-full text-center">
                       <div>vers la guérison.</div>
                     </div>
                   </motion.div>
@@ -247,15 +247,15 @@ export default function ExtendedHeroSection() {
                    text-white text-center z-30 space-y-4"
           >
             <motion.h2
-              className="font-bold text-3xl italic"
+              className="font-bold text-4xl italic"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.1 }}
             >
-              &quot;Un cabinet, c&quot;est avant tout une vision. Racines est né
-              d&quot;une volonté : offrir une prise en charge fondée sur la
-              science, l&quot;écoute et un profond respect du corps. Découvrez
-              ce qui nous anime et comment nous avons bâti cette approche.&quot;
+              &quot;Un cabinet, c'est avant tout une vision. Racines est né
+              d'une volonté : offrir une prise en charge fondée sur la science,
+              l'écoute et un profond respect du corps. Découvrez ce qui nous
+              anime et comment nous avons bâti cette approche.&quot;
             </motion.h2>
             <motion.p
               className="text-base"
