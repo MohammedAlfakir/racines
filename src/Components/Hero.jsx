@@ -166,7 +166,7 @@ export default function ExtendedHeroSection() {
       {/* Hero Section */}
       <section
         ref={containerRef}
-        className="w-full min-h-[130vh] relative overflow-hidden"
+        className="w-full min-h-[150vh] relative overflow-hidden"
       >
         {/* Light gradient background - low GPU impact */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50" />
